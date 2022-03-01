@@ -1,6 +1,6 @@
 object testingObjects {
 
-  val u = new Rational (60,6)
+  val u = new Rational(60, 6)
   val v = new Rational(30, 3)
   val w = new Rational(1, 3)
   val x = new Rational(1, 3)
@@ -24,10 +24,14 @@ object testingObjects {
   z.max(x)
   x.max(z)
 
-  v == u  //true
+  v == u //true
+
+  new Rational(2, 0)
 
 
-  class Rational(val x: Int, val y: Int) {
+  class Rational(x: Int, y: Int = 1) {
+
+    require(y != 0, "denominator must be non zero")
 
     private val g = gcd(x, y)
     private val numer = x / g
